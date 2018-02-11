@@ -18,5 +18,5 @@ export const calculateAbsoluteChange = (value, change) => {
 };
 
 export const formatPercentage = change => {
-  return `${change > 0 ? '+' : (change < 0 ? '-' : '')}${Math.abs(change.toFixed(1))}%`;
+  return `${change > 0 ? '+' : (change < 0 ? '-' : '')}${Math.abs(change).toFixed(1)}%`;
 };

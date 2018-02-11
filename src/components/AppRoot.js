@@ -22,7 +22,7 @@ const LeftPanel = styled.div`
   float: left;
   height: 100%;
   padding: 20px;
-  width: 240px;
+  width: 360px;
 `;
 
 export default connect()(AppRoot);
