@@ -11,12 +11,15 @@ TimerEnd.setTime(Date.now() + 3 * 1000);
 const CryptoRoot = ({ fetchInterval, isFetching, onTimerEnd, portfolio = [], nextFetch }) => (
   <div>
     <TimerLoader isLoading={ isFetching } totalTime={ fetchInterval } timerEnd={ nextFetch } onTimerEnd={ onTimerEnd }/>
-    {portfolio.map(portfolioItem => (
+    {portfolio.map((portfolioItem, i) => (
       <PortfolioItem
-        key={ `${portfolioItem.symbol}.${portfolioItem.investment}` }
+        key={ i }
         fetching={ isFetching }
         symbol={ portfolioItem.symbol }
         value={ portfolioItem.value }
+        index={ i }
+        totalItems={ portfolio.length }
+        change={ portfolioItem.change['24hr'] }
       />
     ))}
   </div>

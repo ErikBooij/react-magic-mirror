@@ -33,7 +33,7 @@ export default class Timer extends React.Component {
   render () {
     return (
       <TimerBar>
-        <TimerProgress progress={ (this.state.totalTime - this.state.timeRemaining ) / this.state.totalTime } />
+        <TimerProgress style={{ width: ((this.state.totalTime - this.state.timeRemaining ) / this.state.totalTime * 100) + '%' }} />
       </TimerBar>
     );
   }
@@ -57,5 +57,4 @@ const TimerBar = styled.div`
 const TimerProgress = styled.div`
   background: rgba(255, 255, 255, 1);
   height: 2px;
-  width: ${props => props.progress * 100}%;
 `;

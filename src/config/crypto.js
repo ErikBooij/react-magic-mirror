@@ -1,3 +1,6 @@
 export default {
-  fetchInterval: 300
+  fetchInterval: 60,
+  gulden: {
+    balance: 45250
+  }
 };
