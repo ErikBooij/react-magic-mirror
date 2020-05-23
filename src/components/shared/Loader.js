@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from "styled-components";
 
-export default () => (
-  <Loader />
+export default ({ visible = true }) => (
+  <Loader visible={ visible } />
 );
 
 const pulsateBackground = keyframes`
@@ -22,6 +22,7 @@ const pulsateBackground = keyframes`
 const Loader = styled.div`
   animation: ${pulsateBackground} 2s ease-in-out infinite;
   background: #fff;
+  display: ${({ visible }) => visible ? 'block' : 'none'};
   height: 2px;
   width: 100%;
 `;

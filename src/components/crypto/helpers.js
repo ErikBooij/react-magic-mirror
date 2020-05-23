@@ -6,7 +6,7 @@ export const indicateChange = (change, positive, neutral, negative) => {
 };
 
 export const calculateTransitionDelay = (index, totalItems, fetching) => {
-  const itemTransitionDelayOffset = 50
+  const itemTransitionDelayOffset = 50;
 
   const baseOffset = (fetching ? totalItems * itemTransitionDelayOffset : 0);
 

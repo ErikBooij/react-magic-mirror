@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import config from '../../config/crypto';
+import { crypto as config } from '../../config';
 
 const fetchGuldenData = (minutesAgo = 0) => {
   const fetchFor = moment.utc().subtract(minutesAgo, 'minutes').format('YYYY-MM-DD\THH:mm:ss');

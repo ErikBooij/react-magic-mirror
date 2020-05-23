@@ -29,6 +29,8 @@ function* handleAction() {
       return sum;
     }, { initialValue: 0, currentValue: 0 });
 
+
+
     yield put({ type: actions.FETCH_CRYPTO_DATA_SUCCEEDED, payload: [
       {
         symbol: 'TOTAL',
@@ -40,13 +42,12 @@ function* handleAction() {
       ...portfolio
     ]});
   } catch (e) {
-    console.log(e);
     yield put({ type: actions.FETCH_CRYPTO_DATA_FAILED });
   }
 }
 
-function* cryptoSaga() {
+function* crypto() {
   yield takeEvery(actions.FETCH_CRYPTO_DATA, handleAction);
 }
 
-export default cryptoSaga;
+export default crypto;

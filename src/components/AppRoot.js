@@ -1,14 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import CryptoRoot from './crypto/CryptoRoot';
+import DeparturesRoot from './departures/departuresRoot';
+import TimeRoot from './time/TimeRoot';
 
 const AppRoot = () => (
   <FullScreen>
-    <LeftPanel>
+    <LeftTop>
       <CryptoRoot/>
-    </LeftPanel>
+    </LeftTop>
+    <LeftBottom>
+      <DeparturesRoot/>
+    </LeftBottom>
+    <RightPanel>
+      <TimeRoot/>
+    </RightPanel>
   </FullScreen>
 );
 
@@ -18,11 +25,30 @@ const FullScreen = styled.div`
   width: 100%;
 `;
 
-const LeftPanel = styled.div`
-  float: left;
-  height: 100%;
+const LeftBottom = styled.div`
+  bottom: 0;
+  left: 0;
   padding: 20px;
+  position: absolute;
   width: 360px;
 `;
 
-export default connect()(AppRoot);
+const LeftTop = styled.div`
+  height: 100%;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  width: 360px;
+`;
+
+const RightPanel = styled.div`
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 360px;
+`;
+
+export default AppRoot;

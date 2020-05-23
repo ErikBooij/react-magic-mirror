@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions/crypto';
 import PortfolioItem from './PortfolioItem';
-import TimerLoader from './TimerLoader';
-
-const TimerEnd = new Date;
-TimerEnd.setTime(Date.now() + 3 * 1000);
+import TimerLoader from '../shared/TimerLoader';
 
 const CryptoRoot = ({ fetchInterval, isFetching, onTimerEnd, portfolio = [], nextFetch }) => (
   <div>
-    <TimerLoader isLoading={ isFetching } totalTime={ fetchInterval } timerEnd={ nextFetch } onTimerEnd={ onTimerEnd }/>
+    <TimerLoader
+      isLoading={ isFetching }
+      onTimerEnd={ onTimerEnd }
+      timerEnd={ nextFetch }
+      totalTime={ fetchInterval }
+    />
     {portfolio.map((portfolioItem, i) => (
       <PortfolioItem
         key={ i }

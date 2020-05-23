@@ -15,6 +15,8 @@ export default class Timer extends React.Component {
       if (timeRemaining === 0) {
         this.props.onEnd();
 
+        clearInterval(this.interval);
+
         return;
       }
 
@@ -32,7 +34,7 @@ export default class Timer extends React.Component {
 
   render () {
     return (
-      <TimerBar>
+      <TimerBar visible={ this.props.visible }>
         <TimerProgress style={{ width: ((this.state.totalTime - this.state.timeRemaining ) / this.state.totalTime * 100) + '%' }} />
       </TimerBar>
     );
@@ -43,13 +45,16 @@ export default class Timer extends React.Component {
   }
 }
 
-Timer.propTypes ={
+Timer.propTypes = {
+  onEnd: PropTypes.func.isRequired,
   timerEnd: PropTypes.instanceOf(Date).isRequired,
-  totalTime: PropTypes.number.isRequired
+  totalTime: PropTypes.number.isRequired,
+  visible: PropTypes.bool.isRequired
 };
 
 const TimerBar = styled.div`
   background: rgba(255, 255, 255, .3);
+  display: ${({ visible }) => visible ? 'block' : 'none' };
   height: 2px;
   width: 100%;
 `;

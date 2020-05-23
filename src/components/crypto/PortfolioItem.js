@@ -1,4 +1,5 @@
-import FontAwesome from 'react-fontawesome';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faCaretSquareUp, faCaretSquareRight, faCaretSquareDown } from '@fortawesome/fontawesome-pro-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -16,7 +17,7 @@ const PortfolioItem = ({ change, fetching, index, symbol, totalItems, value }) =
     <Indicator
       change={ change }
     >
-      <FontAwesome name={ indicateChange(change, 'caret-square-up', 'caret-square-right', 'caret-square-down') } />
+      <FontAwesomeIcon icon={ indicateChange(change, faCaretSquareUp, faCaretSquareRight, faCaretSquareDown) } />
     </Indicator>
     <CurrentValue>&euro; { value.toFixed(2) }</CurrentValue>
     <Change trendColor={ indicateChange(change, colors.positive, colors.neutral, colors.negative) }>
@@ -51,6 +52,7 @@ const Change = styled.div`
   display: flex;
   flex: 1 0 50px;
   font-size: 18px;
+  font-weight: bold;
   margin-left: 10px;
 `;
 
